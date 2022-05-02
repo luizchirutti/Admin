@@ -3,6 +3,17 @@
 const mongoose = require('mongoose')
 const express = require('express')
 const bodyParser = require('body-parser')
+
+const createParent = {
+ name: 'Create',
+ icon: 'fa fa-coffee',
+}
+​
+const managerParent = {
+ name: 'Manage',
+ icon: 'fa fa-cog',
+}
+
 const AdminBro = require('admin-bro')
 const AdminBroExpressjs = require('admin-bro-expressjs')
 ​
