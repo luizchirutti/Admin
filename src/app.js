@@ -53,8 +53,11 @@ app.get('/articles', async (req, res) => {
 ​
 // Pass all configuration settings to AdminBro
 const adminBro = new AdminBro({
- resources: [User, Article],
- rootPath: '/admin',
+  resources: [User, Article],
+  rootPath: '/admin',
+  branding: {
+    companyName: 'Escola de Javascript',
+  },
 })
 ​
 // Build and use a router which will handle all AdminBro routes
