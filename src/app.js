@@ -65,12 +65,16 @@ app.get('/articles', async (req, res) => {
 
 // Pass all configuration settings to AdminBro
 const adminBro = new AdminBro({
- resources: [User,
+ resources: [
+  {
+     resource: User, options: { parent: managerParent }
+  },
   {
      resource: Article, options: {
        properties: {
          created_at: { isVisible: { list: false, filter: false, show: true, edit: false } }
-      }
+      },
+       parent: createParent
     }
   }
 ],
