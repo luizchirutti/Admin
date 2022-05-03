@@ -62,7 +62,6 @@ app.get('/articles', async (req, res) => {
  res.send(articles)
 })
 ​
-
 // Pass all configuration settings to AdminBro
 const adminBro = new AdminBro({
  resources: [
@@ -72,6 +71,7 @@ const adminBro = new AdminBro({
   {
      resource: Article, options: {
        properties: {
+         body: { type: 'richtext' },
          created_at: { isVisible: { list: false, filter: false, show: true, edit: false } }
       },
        parent: createParent
@@ -81,9 +81,12 @@ const adminBro = new AdminBro({
  branding: {
    companyName: 'Escola de Javascript',
 },
+ dashboard: {
+   component: AdminBro.require('./dashboard')
+},
  rootPath: '/admin',
 })
-​
+
 // Build and use a router which will handle all AdminBro routes
 const router = AdminBroExpressjs.buildRouter(adminBro)
 app.use(adminBro.options.rootPath, router)
